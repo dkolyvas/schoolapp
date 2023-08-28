@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>User Menu</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class = header>
+                <p> Καλωσήρθατε, ${requestScope.name}</p>
+            </div>
+            <div class = "nav-menu">
+                <p> dkolyvas <a href="#"> Logout</a></p>
+                
+            </div>
+        </div>
+        <div class="main">
+            <div class ="emphasis">
+                <p>Οι συναντήσεις μου</p>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <th> Καθηγητής</th>
+                        <th> Μαθητής</th>
+                        <th> Αίθουσα</th>
+                        <th> Ημερομηνία</th>
+                    </tr>
+                    <c:forEach var="meeting" items="${requestScope.meetings}">
+                        <tr>
+                            <td>${meeting.teacherName}</td>
+                            <td>${meeting.studentName}</td>
+                            <td>${meeting.classroom}</td>
+                            <td>${meeting.date}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+        </div>
+        <div class="error">
+            <p>${requestScope.message}</p>
+        </div>
+    </div>
+</body>
+</html>
